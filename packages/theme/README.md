@@ -1,51 +1,58 @@
 ## Description
 
-Include a summary of what this plugin accomplishes. Is there a demo site that shows how this plugin operates? If so, include a link to the deployed demo site and/or its source code here.
-
-Themes are considered plugins in the Gatsby ecosystem and should follow this README as well. Note that themes include multiple READMEs. One inside the theme directory with configuration instructions, one inside the example project directory, and one in the root of the repository which will follow this guide.
-
-### Dependencies (optional)
-
-Are there any plugins that must be installed in order to make this plugin work? If so, please include a list of those plugins and links to their pages here.
-
-### Learning Resources (optional)
-
-If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.
+Shopify starter theme to easily connect a Shopify store to your gatsby site and develope a custome store experience. It includes a custome hook to acces helper functions to add, update and remove objects from your shopify checkout.
 
 ## How to install
 
-Please include installation instructions here.
+`npm i -S @rafaremo/gatsby-theme-shopify-starter`
 
-Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
+or
 
-If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+`yarn add @rafaremo/gatsby-theme-shopify-starter`
 
-## Available options (if any)
+After install open your `gatsby-config.js` file and add the theme as follows.
 
-## When do I use this plugin?
+```js
+module.exports = {
+  plugins: [
+    {
+      `@rafaremo/gatsby-theme-shopify-starter`,
+      options: {
+        shopName: "<your-store>.myshopify.com",
+        accessToken: "STOREFRONT ACCESS TOKEN",
+        basePath: "/",
+        productBasePath: "/product", //Product base path
+        collectionBasePath: "/collection" //Collection base path
+      }
+    }
+  ],
+}
+```
 
-Include stories about when this plugin is helpful and/or necessary.
+Run your development environment
+
+```sh
+gatsby develop
+```
 
 ## Examples of usage
 
-This usually shows a code example showing how to include this plugin in a site's `config.js` file.
+To start building your Gatsby Storefront you just need too [shadow](https://egghead.io/lessons/gatsby-use-component-shadowing-to-override-gatsby-theme-components) theme template pages and make usage of the custom cart hook to update the shopify checkout.
 
-    code example
+To use the custom hook import the hook from the theme package
 
-//See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
+```js
+import { useCart } from '@rafaremo/gatsby-theme-shopify-starter';
+```
 
-This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
+Then use the hook to acces the different utility functions to update the shopify checkout
 
-## How to query for data (source plugins only)
+```js
+const { store, addVariantToCart, removeLineItem, updateLineItem } = useCart();
+```
 
-If this is a source plugin README, source plugins ought to allow people to query for data within their Gatsby site. Please include code examples to show how to query for data using your source plugin.
+When you are ready to send your client to the Shopify checkout use the store object from the `useCart` hook to get the checkout URL and redirect your client to that URL.
 
-If this is a theme that requires data in a specific format in order to match an existing query, include those examples here.
-
-## How to run tests
-
-## How to develop locally
-
-## How to contribute
-
-If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
+```js
+window.open(store.checkout.webUrl);
+```
