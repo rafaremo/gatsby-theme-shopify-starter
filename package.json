@@ -1,0 +1,15 @@
+{
+  "name": "gatsby-theme-shopify-boilerplate",
+  "private": true,
+  "version": "0.0.1",
+  "keywords": ["gatsby", "gatsby-plugin", "gatsby-theme"],
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn workspace site dev",
+    "theme:publish": "yarn workspace @rafaremo/gatsby-theme-shopify-starter publish"
+  },
+  "workspaces": [
+    "site",
+    "packages/*"
+  ]
+}

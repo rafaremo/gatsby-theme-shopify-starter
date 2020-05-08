@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "site",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "dev": "gatsby develop"
+  },
+  "dependencies": {
+    "gatsby": "^2.19.32",
+    "@rafaremo/gatsby-theme-shopify-starter": "*",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}

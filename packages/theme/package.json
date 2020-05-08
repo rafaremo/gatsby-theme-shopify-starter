@@ -1,0 +1,26 @@
+{
+  "name": "@rafaremo/gatsby-theme-shopify-starter",
+  "version": "1.1.0",
+  "keywords": ["gatsby", "gatsby-plugin", "gatsby-theme"],
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.19.32",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "gatsby": "^2.19.32",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "dependencies": {
+    "gatsby-source-shopify": "^3.0.45",
+    "shopify-buy": "^2.10.0"
+  }
+}
