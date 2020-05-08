@@ -1,7 +1,11 @@
 {
   "name": "@rafaremo/gatsby-theme-shopify-starter",
-  "version": "1.1.0",
-  "keywords": ["gatsby", "gatsby-plugin", "gatsby-theme"],
+  "version": "1.1.1",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-theme"
+  ],
   "main": "index.js",
   "license": "MIT",
   "scripts": {
